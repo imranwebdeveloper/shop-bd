@@ -25,7 +25,7 @@ const FeatureProducts = () => {
 
   return (
     <section className="">
-      <div className="py-8 lg:py-16 mx-auto max-w-4xl">
+      <div className="py-8 lg:py-16 mx-auto max-w-5xl">
         <h2 className="mb-8 lg:mb-16 text-3xl font-extrabold tracking-tight leading-tight text-center text-gray-900  md:text-4xl">
           Feature Products
         </h2>
@@ -35,12 +35,7 @@ const FeatureProducts = () => {
           <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 rounded gap-2 md:gap-4  ">
             {products?.map((product) => {
               return (
-                <Link
-                  key={product._id}
-                  href={`mobile/${product.brand.toLowerCase()}/${
-                    product.model_id
-                  }`}
-                >
+                <div key={product._id}>
                   <article className="transition cursor-pointer bg-white hover:scale-105  flex flex-col border rounded-md bg-primary-bg-light p-4">
                     <header>
                       <Image
@@ -59,11 +54,15 @@ const FeatureProducts = () => {
                     </main>
                     <footer>
                       <CardPrice prices={product.variants} />
-                      <div className="flex gap-2 mt-4 justify-between">
+                      <div className="flex flex-col  md:flex-row-reverse gap-2 mt-4 justify-between items-center">
+                        <Button size="sm" variant="outline" className="w-full">
+                          Add to cart
+                        </Button>
                         <Link
                           className={buttonVariants({
                             size: "sm",
-                            variant: "secondary",
+                            className: "w-full",
+                            variant: "outline",
                           })}
                           href={`/${product.brand.toLowerCase()}/${
                             product.model_id
@@ -71,14 +70,10 @@ const FeatureProducts = () => {
                         >
                           Details
                         </Link>
-                        <Button size="sm" variant="outline">
-                          Add to cart
-                          {/* <ShoppingCart className="6-8 h-6" /> */}
-                        </Button>
                       </div>
                     </footer>
                   </article>
-                </Link>
+                </div>
               );
             })}
           </section>

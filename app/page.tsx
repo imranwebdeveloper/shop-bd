@@ -13,16 +13,18 @@ export const metadata: Metadata = {
 
 const Home = async () => {
   return (
-    <main>
+    <>
       <div className="min-h-screen flex flex-col">
         <Header />
         <HeroSection />
       </div>
-      <BrandList />
-      <FeatureProducts />
-      <Subscribe />
+      <main>
+        <BrandList />
+        <FeatureProducts />
+        <Subscribe />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 };
 
