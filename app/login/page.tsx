@@ -14,10 +14,10 @@ import { config } from "@/config/env.config";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: `Signup | ${config.logo}`,
+  title: `Login | ${config.logo}`,
 };
 
-const CreateAccount = () => {
+const LoginAccount = () => {
   return (
     <main className="min-h-screen grid md:grid-cols-2 items-stretch bg-white  ">
       <div
@@ -75,32 +75,12 @@ const CreateAccount = () => {
       <div className="flex justify-center items-center">
         <Card className="w-full max-w-lg border-0">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl">Create an account</CardTitle>
+            <CardTitle className="text-2xl">Login an account</CardTitle>
             <CardDescription>
               Enter your email below to create your account
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <div className="grid grid-cols-2 gap-6">
-              <Button variant="outline">
-                <Icons.gitHub className="mr-2 h-4 w-4" />
-                Github
-              </Button>
-              <Button variant="outline">
-                <Icons.google className="mr-2 h-4 w-4" />
-                Google
-              </Button>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
-                  Or continue with
-                </span>
-              </div>
-            </div>
             <div className="grid gap-2">
               <Label htmlFor="phone">Phone Number</Label>
               <Input
@@ -118,7 +98,7 @@ const CreateAccount = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full">Create account</Button>
+            <Button className="w-full">Login account</Button>
           </CardFooter>
         </Card>
       </div>
@@ -126,4 +106,4 @@ const CreateAccount = () => {
   );
 };
 
-export default CreateAccount;
+export default LoginAccount;
