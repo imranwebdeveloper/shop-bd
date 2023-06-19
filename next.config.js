@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "flowbite.s3.amazonaws.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+        pathname: "/**",
+      },
     ],
   },
 };

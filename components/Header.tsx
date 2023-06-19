@@ -5,12 +5,11 @@ import React from "react";
 import { Button, buttonVariants } from "./ui/Button";
 import { LogIn, ShoppingCart } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Badge } from "./ui/badge";
 
 const Header = () => {
   return (
-    <header className=" bg-white">
-      <nav className="max-w-screen-xl border-gray-200  mx-auto py-2.5 ">
+    <header className=" bg-white border-b">
+      <nav className="screen  border-gray-200  mx-auto py-2.5 ">
         <div className="flex flex-wrap justify-between items-center  ">
           <Link href="https://flowbite.com" className="flex items-center">
             <Image
