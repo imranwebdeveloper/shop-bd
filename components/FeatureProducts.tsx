@@ -33,9 +33,9 @@ const FeatureProducts = () => {
           <Loading />
         ) : (
           <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 rounded gap-2 md:gap-4  ">
-            {products?.map((product) => {
+            {products?.map((product, i: number) => {
               return (
-                <div key={product._id}>
+                <div key={i}>
                   <article className="transition cursor-pointer bg-white hover:scale-105  flex flex-col border rounded-md bg-primary-bg-light p-4">
                     <header>
                       <Image

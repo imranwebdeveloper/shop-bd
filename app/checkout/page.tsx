@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
-import Image from "next/image";
 import React from "react";
 
 const page = () => {
@@ -53,7 +52,7 @@ const page = () => {
             Complete your order by providing your payment details.
           </p>
 
-          <div className="bg-white rounded-md border md:p-8 p-2">
+          <div className="bg-white rounded-md border md:p-8 p-4">
             <div className="relative  ">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -148,8 +147,8 @@ const page = () => {
               </div>
             </div>
             <div className="flex items-center justify-between">
-              <p className="text-sm font-medium text-gray-900">Total</p>
-              <p className="text-2xl font-semibold text-gray-900">$408.00</p>
+              <p className="text-sm font-medium ">Total</p>
+              <p className="text-xl font-semibold ">$408.00</p>
             </div>
             <Button className="w-full mt-4">Place Order</Button>
           </div>
