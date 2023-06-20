@@ -1,3 +1,5 @@
+"use client";
+
 import { PhoneVariants } from "@/types";
 import React from "react";
 interface Props {
@@ -16,7 +18,7 @@ const CardPrice: React.FC<Props> = ({ prices }) => {
     }
   });
   return (
-    <p className="text-sm text-center font-bold text-link-text-light">
+    <p className="text-sm text-center font-bold text-orange-600">
       {price ? `${price} Tk` : "Coming Soon "}
     </p>
   );

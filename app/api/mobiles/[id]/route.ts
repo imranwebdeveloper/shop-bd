@@ -5,7 +5,7 @@ export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const phone = await prisma.phone.findFirst({
+  const phone: any = await prisma.phone.findFirst({
     where: { model_id: params.id },
   });
   if (!phone) {

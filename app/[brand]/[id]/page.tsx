@@ -37,8 +37,8 @@ const DetailsPage = () => {
           <div className="py-8  mx-auto screen">
             {details && (
               <>
-                <article className="mx-auto  grid grid-cols-1 text-sm md:grid-cols-3 gap-2 max-w-3xl ">
-                  <div className="border bg-white rounded-md flex flex-col  gap-2 p-6">
+                <article className="mx-auto bg-white border rounded-md grid grid-cols-1 text-sm md:grid-cols-3 gap-2 max-w-3xl ">
+                  <div className="flex flex-col gap-2 p-6">
                     <Image
                       alt={`${details?.brand} ${details?.model} mobile`}
                       src={details.img_url}
@@ -54,7 +54,7 @@ const DetailsPage = () => {
                       <p>{details.model}</p>
                     </div>
                   </div>
-                  <div className="md:col-span-2 border rounded-md  bg-white p-2  md:p-8   ">
+                  <div className="md:col-span-2 p-2  md:p-8   ">
                     <MobilePriceTable
                       variants={details.variants}
                       date={new Date(details.updatedAt).toLocaleDateString()}

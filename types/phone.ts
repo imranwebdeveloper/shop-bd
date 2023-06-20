@@ -34,7 +34,7 @@ export enum PhoneStatus {
 export type PhoneStatusType = "UPCOMING" | "AVAILABLE" | "UNAPPROVED";
 
 export interface PhoneShortInfo {
-  _id: string;
+  id: string;
   brand: string;
   model: string;
   variants: PhoneVariants[];

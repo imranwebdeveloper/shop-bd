@@ -1,12 +1,23 @@
-import { config } from "@/config/env.config";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { Button, buttonVariants } from "./ui/Button";
+import React, { useEffect } from "react";
+import { buttonVariants } from "./ui/Button";
+import { useDispatch, useSelector } from "react-redux";
 import { LogIn, ShoppingCart } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { RootState } from "@/redux/store";
+import { addLocalStorageCart } from "@/redux/cartSlice";
 
 const Header = () => {
+  const cart = useSelector((state: RootState) => state.cart.products);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const localCart = localStorage.getItem("shopDBCart");
+    if (localCart) {
+      dispatch(addLocalStorageCart(JSON.parse(localCart)));
+    }
+  }, [dispatch]);
   return (
     <header className=" bg-white border-b">
       <nav className="screen  border-gray-200  mx-auto py-2.5 ">
@@ -33,7 +44,7 @@ const Header = () => {
               })}`}
             >
               <span className=" bg-orange-600 text-white absolute bottom-6 text-xs left-10 rounded-full px-1">
-                12
+                {cart.length}
               </span>
               <ShoppingCart className="w-8 h-8" />
             </Link>
