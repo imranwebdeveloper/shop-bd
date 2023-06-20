@@ -3,12 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import {
+  useParams,
+  useRouter,
+  useSearchParams,
+  useSelectedLayoutSegment,
+  usePathname,
+} from "next/navigation";
 
 interface Props {
   children: React.ReactNode;
 }
 
 const Sidebar: React.FC<Props> = ({ children }) => {
+  const path = usePathname();
+
   return (
     <div className="min-h-screen flex  antialiased ">
       <div className=" w-64 bg-white min-h-full border-r">
@@ -36,9 +45,11 @@ const Sidebar: React.FC<Props> = ({ children }) => {
               </div>
             </li>
             <li>
-              <a
-                href="#"
-                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+              <Link
+                href="/dashboard"
+                className={`dashboard_link ${
+                  path === "/dashboard" ? "bg-orange-50 text-orange-600" : ""
+                }`}
               >
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
@@ -59,13 +70,39 @@ const Sidebar: React.FC<Props> = ({ children }) => {
                 <span className="ml-2 text-sm tracking-wide truncate">
                   Dashboard
                 </span>
-              </a>
+              </Link>
             </li>
+
+            <Link
+              href="/dashboard/customer"
+              className={`dashboard_link ${
+                path === "/dashboard/customer"
+                  ? "bg-orange-50 text-orange-600"
+                  : ""
+              }`}
+            >
+              <span className="inline-flex justify-center items-center ml-4">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                  ></path>
+                </svg>
+              </span>
+              <span className="ml-2 text-sm tracking-wide truncate">
+                Customer
+              </span>
+            </Link>
             <li>
-              <a
-                href="#"
-                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-              >
+              <a href="#" className={`dashboard_link`}>
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
                     className="w-5 h-5"
@@ -91,10 +128,7 @@ const Sidebar: React.FC<Props> = ({ children }) => {
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-              >
+              <a href="#" className={`dashboard_link`}>
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
                     className="w-5 h-5"
@@ -117,10 +151,7 @@ const Sidebar: React.FC<Props> = ({ children }) => {
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-              >
+              <a href="#" className={`dashboard_link`}>
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
                     className="w-5 h-5"
@@ -153,10 +184,7 @@ const Sidebar: React.FC<Props> = ({ children }) => {
               </div>
             </li>
             <li>
-              <a
-                href="#"
-                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-              >
+              <a href="#" className={`dashboard_link`}>
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
                     className="w-5 h-5"
@@ -179,10 +207,7 @@ const Sidebar: React.FC<Props> = ({ children }) => {
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-              >
+              <a href="#" className={`dashboard_link`}>
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
                     className="w-5 h-5"
@@ -215,10 +240,7 @@ const Sidebar: React.FC<Props> = ({ children }) => {
               </div>
             </li>
             <li>
-              <a
-                href="#"
-                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-              >
+              <a href="#" className={`dashboard_link`}>
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
                     className="w-5 h-5"
@@ -241,10 +263,7 @@ const Sidebar: React.FC<Props> = ({ children }) => {
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-              >
+              <a href="#" className={`dashboard_link`}>
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
                     className="w-5 h-5"
@@ -273,10 +292,7 @@ const Sidebar: React.FC<Props> = ({ children }) => {
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-              >
+              <a href="#" className={`dashboard_link`}>
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
                     className="w-5 h-5"
@@ -301,7 +317,9 @@ const Sidebar: React.FC<Props> = ({ children }) => {
           </ul>
         </div>
       </div>
-      <div className="px-4 flex-1">{children}</div>
+      <div className="px-4 flex-1 relative h-screen overflow-scroll overflow-x-hidden  ">
+        {children}
+      </div>
     </div>
   );
 };
