@@ -16,7 +16,7 @@ const FeatureProducts = () => {
   const dispatch = useDispatch();
 
   return (
-    <section className="py-8 lg:py-16 mx-auto max-w-5xl">
+    <section id="product" className="py-8 lg:py-16 mx-auto max-w-5xl">
       <h2 className="mb-8 lg:mb-16 text-3xl font-extrabold tracking-tight leading-tight text-center text-gray-900  md:text-4xl">
         Feature Products
       </h2>

@@ -74,6 +74,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-[#EDF2F7];
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -87,4 +88,8 @@
   .dashboard_link {
     @apply relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent pr-6;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }

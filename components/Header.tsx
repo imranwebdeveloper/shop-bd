@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LogIn, ShoppingCart } from "lucide-react";
 import { RootState } from "@/redux/store";
 import { addLocalStorageCart } from "@/redux/cartSlice";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Header = () => {
   const cart = useSelector((state: RootState) => state.cart.products);
@@ -19,7 +20,7 @@ const Header = () => {
     }
   }, [dispatch]);
   return (
-    <header className=" bg-white border-b">
+    <header className=" bg-white shadow">
       <nav className="screen  border-gray-200  mx-auto py-2.5 ">
         <div className="flex flex-wrap justify-between items-center  ">
           <Link href="/" className="flex items-center">
@@ -30,7 +31,7 @@ const Header = () => {
               width={100}
               height={40}
             />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-xl font-bold whitespace-nowrap text-orange-600">
               ShopBD
             </span>
           </Link>
@@ -57,6 +58,11 @@ const Header = () => {
             >
               <LogIn className="w-4 h-4 mr-2" /> Login
             </Link>
+
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
           </div>
         </div>
       </nav>

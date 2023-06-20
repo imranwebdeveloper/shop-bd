@@ -10,7 +10,7 @@ import Subscribe from "@/components/Subscribe";
 const Home = async () => {
   return (
     <>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex relative flex-col">
         <Header />
         <HeroSection />
       </div>

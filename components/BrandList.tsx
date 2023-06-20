@@ -2,7 +2,7 @@ import React from "react";
 
 const BrandList = () => {
   return (
-    <section className="bg-white border-y">
+    <section className="bg-white border-b">
       <div className="py-8 lg:py-16 mx-auto screen">
         <h2 className="mb-8 lg:mb-16 text-3xl font-extrabold tracking-tight leading-tight text-center text-gray-900  md:text-4xl">
           Choose the best brand for your

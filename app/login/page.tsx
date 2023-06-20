@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { config } from "@/config/env.config";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `Login | ${config.logo}`,
@@ -24,16 +25,19 @@ const LoginAccount = () => {
         className="lg:flex  hidden text-white bg-gray-500 bg-no-repeat bg-cover relative items-center"
         style={{
           backgroundImage:
-            "url(https:images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80)",
+            "url(https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png)",
         }}
       >
         <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
         <div className="w-full px-24 z-10">
           <h1 className="text-5xl font-bold text-left tracking-wide">
-            Keep it special
+            Stay Connect with
+            <Link href="/" className="text-orange-300 text-lg ml-1">
+              ShopBD
+            </Link>
           </h1>
           <p className="text-3xl my-4">
-            Capture your personal memory in unique way, anywhere.
+            Discover the latest mobile devices and accessories.
           </p>
         </div>
         <div className="bottom-0 absolute p-4 text-center right-0 left-0 flex justify-center space-x-4">
@@ -100,6 +104,13 @@ const LoginAccount = () => {
           <CardFooter>
             <Button className="w-full">Login account</Button>
           </CardFooter>
+          <p className="text-center">
+            New member?
+            <Link href="/signup" className="text-blue-600 px-1">
+              Register
+            </Link>
+            here.
+          </p>
         </Card>
       </div>
     </main>
