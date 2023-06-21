@@ -20,15 +20,15 @@ const Header = () => {
     }
   }, [dispatch]);
   return (
-    <header className=" bg-white shadow">
-      <nav className="screen  border-gray-200  mx-auto py-2.5 ">
+    <header className=" bg-white border-b ">
+      <nav className="screen mx-auto py-2.5 ">
         <div className="flex flex-wrap justify-between items-center  ">
           <Link href="/" className="flex items-center">
             <Image
               src="https://flowbite.com/docs/images/logo.svg"
               className="mr-3 h-6 sm:h-9 hidden md:flex"
               alt="Flowbite Logo"
-              width={100}
+              width={40}
               height={40}
             />
             <span className="self-center text-xl font-extrabold whitespace-nowrap ">

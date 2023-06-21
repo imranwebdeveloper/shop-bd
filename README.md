@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Shop BD
 
-## Getting Started
+[ShopBD](https://shopbd-beta.vercel.app) is a web application for an e-commerce admin, built using ReactJS and NextJS
 
-First, run the development server:
+Live link : [https://shopbd-beta.vercel.app](https://shopbd-beta.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Description
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Shop BD application is designed to provide an admin interface for managing an e-commerce platform. It includes various views such as login, product management, cart, checkout, and an admin dashboard. The application is built using ReactJS and NextJS, with additional dependencies for UI components, state management, API communication, and styling.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Login & Home / Landing View**: Users can register and log in using a Bangladeshi phone number and password.
+- **Product List View / Product Detail View**: Display a list of products and provide detailed information about each product.
+- **Cart View / Checkout View**: Users can add products to the cart, review the cart items, and proceed to checkout.
+- **Admin Dashboard / Overview / Summary**: Provide an overview of key metrics and summary information for the admin.
+- **Admin Customers List / Customer Detail View**: Display a list of customers and provide detailed information about each customer.
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- ReactJS
+- NextJS
+- Prisma (for database access)
+- Axios (for API communication)
+- Tailwind CSS (for styling)
+- Redux Toolkit (for state management and data fetching)
+- React Hook Form (for form handling)
+- Recharts (for charting)
+- Eslint (for linting)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   git clone https://github.com/imranwebdeveloper/shop-bd
+   ```
