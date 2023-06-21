@@ -20,7 +20,7 @@ const Header = () => {
     }
   }, [dispatch]);
   return (
-    <header className=" bg-white border-b ">
+    <header>
       <nav className="screen mx-auto py-2.5 ">
         <div className="flex flex-wrap justify-between items-center  ">
           <Link href="/" className="flex items-center">
@@ -31,7 +31,7 @@ const Header = () => {
               width={40}
               height={40}
             />
-            <span className="self-center text-xl font-extrabold whitespace-nowrap ">
+            <span className="self-center text-xl text-white font-extrabold whitespace-nowrap ">
               ShopBD
             </span>
           </Link>

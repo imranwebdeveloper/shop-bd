@@ -10,14 +10,19 @@ import Subscribe from "@/components/Subscribe";
 const Home = async () => {
   return (
     <>
-      <div className="min-h-screen flex  flex-col">
+      <div
+        className="min-h-screen flex  flex-col"
+        style={{
+          background: "linear-gradient(to right, #334d50, #cbcaa5)",
+        }}
+      >
         <Header />
         <HeroSection />
       </div>
       <main>
         <BrandList />
         <FeatureProducts />
-        <Subscribe />
+        {/* <Subscribe /> */}
       </main>
       <Footer />
     </>
