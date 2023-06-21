@@ -11,7 +11,7 @@ import { addLocalStorageCart } from "@/redux/cartSlice";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 interface Props {
-  def: boolean;
+  def?: boolean;
 }
 
 const Header: React.FC<Props> = ({ def }) => {
