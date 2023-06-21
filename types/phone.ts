@@ -1,5 +1,3 @@
-import { DocumentCommon } from "./document";
-
 export interface PhoneContent {
   [key: string]: any;
 }
@@ -11,7 +9,7 @@ export interface PhoneVariants {
   unofficial: number;
 }
 
-export interface Phone extends DocumentCommon {
+export interface Phone {
   releasedDate: any;
   title: string;
   brand: string;
