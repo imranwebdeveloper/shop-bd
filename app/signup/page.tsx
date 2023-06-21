@@ -19,6 +19,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { login } from "@/redux/authSlice";
 
 export const metadata: Metadata = {
   title: `Signup | ${config.logo}`,
@@ -30,16 +32,18 @@ const CreateAccount = () => {
   const [error, setError] = useState("");
   const [registerUser, { data, isLoading }] = useRegisterUserMutation();
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const onSubmitHandler = async () => {
     try {
       if (phoneNumber && password) {
-        const user = await registerUser({
+        const user: any = await registerUser({
           password,
           phoneNumber,
         }).unwrap();
         if (user) {
           router.push("/");
+          dispatch(login(user));
         }
       }
     } catch (error: any) {

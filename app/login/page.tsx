@@ -15,6 +15,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { login } from "@/redux/authSlice";
 
 const LoginAccount = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -22,23 +24,24 @@ const LoginAccount = () => {
   const [error, setError] = useState("");
   const [loginUser, { data, isLoading }] = useLoginUserMutation();
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const onLoginHandler = async () => {
     try {
       if (phoneNumber && password) {
-        const user = await loginUser({
+        const user: any = await loginUser({
           password,
           phoneNumber,
         }).unwrap();
         if (user) {
           router.push("/");
+          dispatch(login(user));
         }
       }
     } catch (error: any) {
       setError("Invalid credentials");
     }
   };
-  console.log(data);
 
   return (
     <main className="min-h-screen grid md:grid-cols-2 items-stretch bg-white  ">
