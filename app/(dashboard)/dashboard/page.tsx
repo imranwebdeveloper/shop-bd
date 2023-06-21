@@ -14,7 +14,7 @@ import RecentSales from "@/components/Recent";
 
 const DashboardPage = () => {
   return (
-    <div className=" space-y-4 p-8 pt-6">
+    <div className=" space-y-4 pt-6">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card className="bg-yellow-50 text-yellow-600">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -65,16 +65,16 @@ const DashboardPage = () => {
           </CardContent>
         </Card>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-        <Card className="col-span-4">
+      <div className="grid gap-4 md:grid-cols-8 ">
+        <Card className="md:col-span-5">
           <CardHeader>
             <CardTitle>Overview</CardTitle>
           </CardHeader>
-          <CardContent className="pl-2">
+          <CardContent>
             <Overview />
           </CardContent>
         </Card>
-        <Card className="col-span-3">
+        <Card className="md:col-span-3 ">
           <CardHeader>
             <CardTitle>Recent Sales</CardTitle>
             <CardDescription>You made 265 sales this month.</CardDescription>
