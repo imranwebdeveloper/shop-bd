@@ -22,10 +22,6 @@ import { Loader2 } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { login } from "@/redux/authSlice";
 
-export const metadata: Metadata = {
-  title: `Signup | ${config.logo}`,
-};
-
 const CreateAccount = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
