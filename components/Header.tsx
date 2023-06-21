@@ -68,7 +68,7 @@ const Header: React.FC<Props> = ({ def }) => {
             </Link>
 
             <Link href="/dashboard">
-              <Avatar>
+              <Avatar className="border">
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </Link>

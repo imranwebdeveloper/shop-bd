@@ -44,9 +44,8 @@ const CheckoutPage = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <Header />
-
+    <main>
+      <Header def={true} />
       {loading ? (
         <Loading />
       ) : (
@@ -218,7 +217,7 @@ const CheckoutPage = () => {
           )}
         </>
       )}
-    </>
+    </main>
   );
 };
 
