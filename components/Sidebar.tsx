@@ -292,7 +292,7 @@ const Sidebar: React.FC<Props> = ({ children }) => {
               </a>
             </li>
             <li>
-              <a href="#" className={`dashboard_link`}>
+              <Link href="/" className={`dashboard_link`}>
                 <span className="inline-flex justify-center items-center ml-4">
                   <svg
                     className="w-5 h-5"
@@ -312,7 +312,7 @@ const Sidebar: React.FC<Props> = ({ children }) => {
                 <span className="ml-2 text-sm tracking-wide truncate">
                   Logout
                 </span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

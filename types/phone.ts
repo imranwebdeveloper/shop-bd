@@ -23,6 +23,8 @@ export interface Phone extends DocumentCommon {
   approved: boolean;
   img_url: string;
   content: PhoneContent;
+  id: string;
+  updatedAt: string;
 }
 
 export enum PhoneStatus {

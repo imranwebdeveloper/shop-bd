@@ -58,6 +58,7 @@ const DetailsPage = () => {
                     <MobilePriceTable
                       variants={details.variants}
                       date={new Date(details.updatedAt).toLocaleDateString()}
+                      id={details.id}
                     />
                     <div className="mt-2 flex gap-2 border text-sm md:text-base items-center md:hidden  ">
                       <p className="p-2 bg-slate-50 border-r ">Last Updated</p>

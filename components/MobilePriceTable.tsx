@@ -1,12 +1,25 @@
 import { PhoneVariants } from "@/types";
 import React from "react";
+import { Button } from "./ui/Button";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/cartSlice";
+import { toast } from "./ui/use-toast";
 
 interface Props {
   variants: PhoneVariants[];
   date: string;
+  id: string;
 }
 
-const MobilePriceTable: React.FC<Props> = ({ variants, date }) => {
+const MobilePriceTable: React.FC<Props> = ({ id, variants, date }) => {
+  const dispatch = useDispatch();
+
+  const addCartHandler = () => {
+    dispatch(addToCart(id));
+    toast({
+      title: "New item(s) have been added to your cart",
+    });
+  };
   return (
     <div className="overflow-hidden">
       <table className="min-w-full border text-center text-xs md:text-sm  border-collapse ">
@@ -45,6 +58,11 @@ const MobilePriceTable: React.FC<Props> = ({ variants, date }) => {
           })}
         </tbody>
       </table>
+      <div className="mt-4 flex justify-center">
+        <Button variant="outline" onClick={addCartHandler}>
+          Add to cart
+        </Button>
+      </div>
     </div>
   );
 };

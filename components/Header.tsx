@@ -31,7 +31,7 @@ const Header = () => {
               width={100}
               height={40}
             />
-            <span className="self-center text-xl font-bold whitespace-nowrap text-orange-600">
+            <span className="self-center text-xl font-extrabold whitespace-nowrap ">
               ShopBD
             </span>
           </Link>
@@ -59,10 +59,11 @@ const Header = () => {
               <LogIn className="w-4 h-4 mr-2" /> Login
             </Link>
 
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
+            <Link href="/dashboard">
+              <Avatar>
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </Link>
           </div>
         </div>
       </nav>
