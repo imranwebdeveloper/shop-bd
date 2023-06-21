@@ -1,6 +1,7 @@
 import { PhoneShortInfo } from "@/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Cart } from "./cartSlice";
+import { User } from "@/types/user";
 
 export const productApi = createApi({
   reducerPath: "api",
@@ -9,14 +10,25 @@ export const productApi = createApi({
     getProduct: builder.query<PhoneShortInfo[], null>({
       query: () => `mobiles`,
     }),
-    getProductByCart: builder.mutation<PhoneShortInfo[], any>({
-      query: (carts) => ({
-        url: `mobiles`,
+    registerUser: builder.mutation<User, User>({
+      query: (user: User) => ({
+        url: `user/register`,
         method: "POST",
-        body: { id: carts },
+        body: user,
+      }),
+    }),
+    loginUser: builder.mutation<User, User>({
+      query: (user: User) => ({
+        url: `user/login`,
+        method: "POST",
+        body: user,
       }),
     }),
   }),
 });
 
-export const { useGetProductQuery, useGetProductByCartMutation } = productApi;
+export const {
+  useGetProductQuery,
+  useRegisterUserMutation,
+  useLoginUserMutation,
+} = productApi;

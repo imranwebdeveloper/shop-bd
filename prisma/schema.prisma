@@ -11,17 +11,23 @@ datasource db {
 
 model Phone {
   id         String      @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
   releasedDate DateTime?
   title      String
   brand      String
   model      String
-  model_id   String   @unique
+  model_id   String      @unique
   category   String
   status     String
   approved   Boolean
   img_url    String
   content    Json
   variants   Json[]
+}
+
+model User {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  phoneNumber  String   @unique
+  password    String
 }

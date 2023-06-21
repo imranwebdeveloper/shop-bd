@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/Button";
 import {
   Card,
@@ -7,18 +8,38 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import { Icons } from "@/components/ui/Icon";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
-import { config } from "@/config/env.config";
-import { Metadata } from "next";
+import { useLoginUserMutation } from "@/redux/api";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: `Login | ${config.logo}`,
-};
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 const LoginAccount = () => {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loginUser, { data, isLoading }] = useLoginUserMutation();
+  const router = useRouter();
+
+  const onLoginHandler = async () => {
+    try {
+      if (phoneNumber && password) {
+        const user = await loginUser({
+          password,
+          phoneNumber,
+        }).unwrap();
+        if (user) {
+          router.push("/");
+        }
+      }
+    } catch (error: any) {
+      setError("Invalid credentials");
+    }
+  };
+  console.log(data);
+
   return (
     <main className="min-h-screen grid md:grid-cols-2 items-stretch bg-white  ">
       <div
@@ -94,16 +115,35 @@ const LoginAccount = () => {
                 required
                 min={11}
                 max={11}
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" required min={11} max={11} />
+              <Input
+                id="password"
+                type="password"
+                required
+                min={11}
+                max={11}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full">Login account</Button>
+            {isLoading ? (
+              <Button disabled className="w-full">
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Please wait
+              </Button>
+            ) : (
+              <Button className="w-full" onClick={onLoginHandler}>
+                Login account
+              </Button>
+            )}
           </CardFooter>
+          {error && <p className="text-red-600 text-center text-sm">{error}</p>}
+
           <p className="text-center">
             New member?
             <Link href="/signup" className="text-blue-600 px-1">

@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/Button";
 import {
   Card,
@@ -11,14 +13,40 @@ import { Icons } from "@/components/ui/Icon";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { config } from "@/config/env.config";
+import { useRegisterUserMutation } from "@/redux/api";
 import { Metadata } from "next";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `Signup | ${config.logo}`,
 };
 
 const CreateAccount = () => {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [registerUser, { data, isLoading }] = useRegisterUserMutation();
+  const router = useRouter();
+
+  const onSubmitHandler = async () => {
+    try {
+      if (phoneNumber && password) {
+        const user = await registerUser({
+          password,
+          phoneNumber,
+        }).unwrap();
+        if (user) {
+          router.push("/");
+        }
+      }
+    } catch (error: any) {
+      setError("You already registered! Please try Login");
+    }
+  };
+  console.log(data);
   return (
     <main className="min-h-screen grid md:grid-cols-2 items-stretch bg-white  ">
       <div
@@ -114,16 +142,34 @@ const CreateAccount = () => {
                 required
                 min={11}
                 max={11}
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" required min={11} max={11} />
+              <Input
+                id="password"
+                type="password"
+                required
+                min={11}
+                max={11}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="w-full">Create account</Button>
+            {isLoading ? (
+              <Button disabled className="w-full">
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Please wait
+              </Button>
+            ) : (
+              <Button className="w-full" onClick={onSubmitHandler}>
+                Create account
+              </Button>
+            )}
           </CardFooter>
+          {error && <p className="text-red-600 text-center text-sm">{error}</p>}
           <p className="text-center">
             Already member?
             <Link href="/login" className="text-blue-600 px-1">
