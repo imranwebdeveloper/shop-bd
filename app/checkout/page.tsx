@@ -10,7 +10,6 @@ import {
   removeCartFromCheckout,
 } from "@/redux/cartSlice";
 import { RootState } from "@/redux/store";
-import { PhoneShortInfo } from "@/types";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../loading";

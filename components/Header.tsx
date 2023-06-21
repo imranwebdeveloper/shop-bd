@@ -10,7 +10,11 @@ import { RootState } from "@/redux/store";
 import { addLocalStorageCart } from "@/redux/cartSlice";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
-const Header = () => {
+interface Props {
+  def: boolean;
+}
+
+const Header: React.FC<Props> = ({ def }) => {
   const cart = useSelector((state: RootState) => state.cart.products);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,7 +24,7 @@ const Header = () => {
     }
   }, [dispatch]);
   return (
-    <header>
+    <header className={`${def ? "bg-white" : ""}`}>
       <nav className="screen mx-auto py-2.5 ">
         <div className="flex flex-wrap justify-between items-center  ">
           <Link href="/" className="flex items-center">
@@ -31,7 +35,11 @@ const Header = () => {
               width={40}
               height={40}
             />
-            <span className="self-center text-xl text-white font-extrabold whitespace-nowrap ">
+            <span
+              className={`self-center text-xl font-extrabold whitespace-nowrap ${
+                def ? "text-gray-700" : "text-white"
+              }`}
+            >
               ShopBD
             </span>
           </Link>
