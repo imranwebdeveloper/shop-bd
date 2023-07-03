@@ -3,13 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import {
-  useParams,
-  useRouter,
-  useSearchParams,
-  useSelectedLayoutSegment,
-  usePathname,
-} from "next/navigation";
+import { usePathname } from "next/navigation";
 import DashboardHeader from "./DashboardHeader";
 
 const Sidebar: React.FC = () => {
